@@ -1,0 +1,10 @@
+target/
+.env
+*.class
+.idea/
+application-local.properties
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.env

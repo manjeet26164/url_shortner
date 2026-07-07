@@ -3,8 +3,19 @@ package com.urlshortener.repository;
 import com.urlshortener.entity.ClickEvent;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 public interface ClickEventRepository extends JpaRepository<ClickEvent, Long> {
 
     List<ClickEvent> findByUrlMappingIdOrderByClickedAtDesc(Long urlMappingId);
+
+    @Query(value = """
+        SELECT CAST(clicked_at AS date) AS clickDay, COUNT(*) AS clickCount
+        FROM click_events
+        WHERE url_mapping_id = :urlMappingId
+        GROUP BY CAST(clicked_at AS date)
+        ORDER BY clickDay ASC
+        """, nativeQuery = true)
+    List<Object[]> countClicksGroupedByDay(@Param("urlMappingId") Long urlMappingId);
 }

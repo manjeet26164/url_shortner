@@ -1,0 +1,444 @@
+2026-07-06T05:35:43.878Z [INFO] ----------------------invoke appmod-generate-tests-for-java----------------------
+2026-07-06T05:35:43.879Z [INFO] [Tool.invoke]({name: appmod-generate-tests-for-java, modelId: auto, input: {
+  "projectPath": "c:\\Users\\Asus\\Desktop\\url_shortner"
+}}).
+2026-07-06T05:35:43.879Z [INFO] [Tool.invoke] do invoke.
+2026-07-06T05:35:43.882Z [INFO] Project c:\Users\Asus\Desktop\url_shortner is a maven project, try to get java version from pom.xml
+2026-07-06T05:35:43.883Z [INFO] Project java version: 25
+2026-07-06T05:35:43.884Z [INFO] Maven project detected.
+2026-07-06T05:35:43.885Z [INFO] Build tool type: mvn
+2026-07-06T05:35:43.964Z [INFO] JDK: {
+  "name": "java",
+  "path": "C:\\Users\\Asus\\AppData\\Local\\jdks\\jdk-25.0.2\\bin",
+  "version": "25"
+}
+2026-07-06T05:35:43.976Z [INFO] Build tool: {
+  "name": "mvn",
+  "path": "C:\\Users\\Asus\\.maven\\maven-3.9.15\\bin",
+  "version": "",
+  "source": "install"
+}
+2026-07-06T05:35:43.977Z [INFO] Project config: {
+  "buildTool": {
+    "path": "C:\\Users\\Asus\\.maven\\maven-3.9.15\\bin",
+    "name": "mvn",
+    "version": "",
+    "source": "install"
+  },
+  "jdk": {
+    "path": "C:\\Users\\Asus\\AppData\\Local\\jdks\\jdk-25.0.2\\bin",
+    "name": "java",
+    "version": "25"
+  },
+  "name": "url_shortner",
+  "dir": "c:\\Users\\Asus\\Desktop\\url_shortner"
+}
+2026-07-06T05:35:43.978Z [INFO] [MavenBuildTool] Cleaning c:\Users\Asus\Desktop\url_shortner using Maven
+2026-07-06T05:35:43.979Z [INFO] [Environment] Running command (Java undefined): mvn clean -q -B -fn
+2026-07-06T05:35:46.045Z [INFO] [TestGeneration] Starting generate unit test for c:\Users\Asus\Desktop\url_shortner
+2026-07-06T05:35:46.046Z [INFO] [Tool.invoke]({result: {
+  "message": "## Mission\nGenerate unit tests for project source code.\n\n## Objectives\n1. Identify code to generate unit test cases on.\n2. Build and run unit test to make sure tests can pass.\n3. Resolve build errors and fix failing generated tests.\n\n## Success Criteria\n* All steps in the workflow are executed.\n* The project builds successfully and tests pass successfully.\n* Code coverage for related source code increases, ideally to over 75%.\n* Job progress is reflected on work log file in real time.\n\n## Core Rules\n* ALWAYS use the test framework already used by project, if any.\n* ALWAYS validate build and run tests after code modification.\n* ALWAYS update the progress in the work log file \"c:\\Users\\Asus\\Desktop\\url_shortner\\.github\\modernize\\java-upgrade\\20260706053543\\generate_tests.md\" as soon as there is progress.\n* ALWAYS leverage the given headings while appending to the work log file.\n* ALWAYS use \"20260706053543\" as the sessionId parameter while calling tools.\n* ALWAYS use \"java-upgrade\" as the author name when applies.\n* NEVER change source code to merely make tests pass.\n\n## Understanding User Intent\n* If the user asks to generate unit tests for only certain files, ALWAYS limit test generation to the scope designated by user.\n* If the user does not give a scope for test generation, read the source code and generate unit tests for important code paths that do not have unit tests.\n\n## Workflow\n0. Open the work log file \"c:\\Users\\Asus\\Desktop\\url_shortner\\.github\\modernize\\java-upgrade\\20260706053543\\generate_tests.md\" first with any tools you prefer.\n1. Create a plan for a list of what to do in the test generation process. Write it to the work log file.\n    * The work log file is \"c:\\Users\\Asus\\Desktop\\url_shortner\\.github\\modernize\\java-upgrade\\20260706053543\\generate_tests.md\".\n    * The plan should be an ordered list in the work log.\n    * When available, also use the \"todos\" tool on the plan to create a to-do list.\n2. Validate that the project can be built successfully. If the build fails and there is no tools to fix build failures, STOP.\n3. Run all the tests, asking the tool not to clean test results. Read Surefire test reports from related directories (e.g. target/surefire-reports). In the work log, create a pre-generation summary table for ALL test suites executed.\n    * The table should contain the following columns: test suite name, execution time, total test count, failed test count, error test count and skipped test count.\n4. Now that it's time to generate unit tests, in the work log file, create a work progress table for all source files to generate unit tests against. The table will be used to show the job progress.\n    * The table should contain the following columns: class name, test generated (emoji to indicate status), test executed (emoji to indicate status), test succeeded (emoji to indicate status).\n5. For each of the source files, please generate unit tests in the following steps:\n    1. Update the aforementioned work progress table, mark the \"test generated\" column to be in progress.\n    2. Find the corresponding source file for the unit test file. If one cannot be found, STOP.\n    3. Read the source file thoroughly. Identify critical code path and corner cases.\n    4. Using the information gathered in earlier steps to generate unit tests in the test file.\n    5. Build and run to validate the test.\n        * If the build fails, fix generated unit tests and build again until the build succeeds.\n        * If a test cannot be fixed after 4 attempts, comment the code generated for the test and mark \"test generated\" column as skipped.\n    6. After finishing generating and validating a test, update the work progress table, mark the columns as completed.\n6. Run all the tests, asking the tool not to clean test results. If any generated test fails, understand the source code behavior and fix the generated test until all tests succeed.\n    * For each source file before and after the step, in the work log file \"c:\\Users\\Asus\\Desktop\\url_shortner\\.github\\modernize\\java-upgrade\\20260706053543\\generate_tests.md\", update the work progress table column \"test executed\" and \"test succeeded\" accordingly.\n7. Read Surefire test reports from related directories (e.g. target/surefire-reports). Write the following in the work log file:\n    * Create a post-generation summary table about the test suites added. The table should contain the following columns: class name, count of test generated, test generation result.\n    * Give a text summary of the result of task execution.\n\n## Best Practices\n* Avoid infrastructure dependencies in tests.\n* Use the \"Arrange, Act, Assert\" pattern.\n* Write minimally passing tests.\n* Avoid hard-coded string values in tests. If there must be one, explain it in comments.\n* Avoid coding logic in unit tests.\n* Make sure the tests are deterministic."
+}}).
+2026-07-06T05:35:46.046Z [INFO] ----------------------invoked appmod-generate-tests-for-java----------------------
+2026-07-06T05:36:00.560Z [INFO] ---------------------prepare appmod-build-java-project----------------------
+2026-07-06T05:36:00.560Z [INFO] [Tool.prepareInvocation]({name: appmod-build-java-project, input: {
+  "sessionId": "20260706053543",
+  "projectPath": "c:\\Users\\Asus\\Desktop\\url_shortner"
+}}).
+2026-07-06T05:36:00.561Z [INFO] [Tool.prepareInvocation] do prepare invocation.
+2026-07-06T05:36:00.561Z [INFO] [Tool.prepareInvocation]({result: {
+  "invocationMessage": "Build project"
+}}).
+2026-07-06T05:36:00.562Z [INFO] ----------------------prepared appmod-build-java-project----------------------
+2026-07-06T05:36:00.636Z [INFO] ----------------------invoke appmod-build-java-project----------------------
+2026-07-06T05:36:00.638Z [INFO] [Tool.invoke]({name: appmod-build-java-project, modelId: auto, input: {
+  "sessionId": "20260706053543",
+  "projectPath": "c:\\Users\\Asus\\Desktop\\url_shortner"
+}}).
+2026-07-06T05:36:00.639Z [INFO] [Tool.invoke] do invoke.
+2026-07-06T05:36:00.641Z [INFO] Project c:\Users\Asus\Desktop\url_shortner is a maven project, try to get java version from pom.xml
+2026-07-06T05:36:00.644Z [INFO] Project java version: 25
+2026-07-06T05:36:00.645Z [INFO] Maven project detected.
+2026-07-06T05:36:00.645Z [INFO] Build tool type: mvn
+2026-07-06T05:36:00.697Z [INFO] JDK: {
+  "name": "java",
+  "path": "C:\\Users\\Asus\\AppData\\Local\\jdks\\jdk-25.0.2\\bin",
+  "version": "25"
+}
+2026-07-06T05:36:00.704Z [INFO] Build tool: {
+  "name": "mvn",
+  "path": "C:\\Users\\Asus\\.maven\\maven-3.9.15\\bin",
+  "version": "",
+  "source": "install"
+}
+2026-07-06T05:36:00.704Z [INFO] Project config: {
+  "buildTool": {
+    "path": "C:\\Users\\Asus\\.maven\\maven-3.9.15\\bin",
+    "name": "mvn",
+    "version": "",
+    "source": "install"
+  },
+  "jdk": {
+    "path": "C:\\Users\\Asus\\AppData\\Local\\jdks\\jdk-25.0.2\\bin",
+    "name": "java",
+    "version": "25"
+  },
+  "name": "url_shortner",
+  "dir": "c:\\Users\\Asus\\Desktop\\url_shortner"
+}
+2026-07-06T05:36:00.705Z [INFO] [MavenBuildTool] Getting build errors of c:\Users\Asus\Desktop\url_shortner using Maven
+2026-07-06T05:36:00.705Z [INFO] [Environment] Running command (Java undefined): mvn clean test-compile -q -B -fn -Dossindex.skip=true -Dlicense.skip=true -Dcheckstyle.skip=true -DskipLicenseCheck=true -DskipCheckStyle=true -Dpmd.skip=true -Denforcer.skip=true -Drat.skip=true
+2026-07-06T05:36:05.264Z [INFO] [MavenBuildTool] parsing compilation errors.
+2026-07-06T05:36:05.265Z [INFO] [MavenBuildTool] Getting all module coordinates of c:\Users\Asus\Desktop\url_shortner
+2026-07-06T05:36:05.266Z [INFO] [MavenBuildTool] Getting effective POMs of c:\Users\Asus\Desktop\url_shortner
+2026-07-06T05:36:05.266Z [INFO] [Environment] Running command (Java undefined): mvn help:effective-pom -Doutput=effective-pom-87c9ff7c-3861-4676-8d1b-8b046b6f9a27.log
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------< com.urlshortener:url-shortener >-------------------
+[INFO] Building url-shortener 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- help:3.5.1:effective-pom (default-cli) @ url-shortener ---
+[INFO] Effective-POM written to: c:\Users\Asus\Desktop\url_shortner\effective-pom-87c9ff7c-3861-4676-8d1b-8b046b6f9a27.log
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.901 s
+[INFO] Finished at: 2026-07-06T11:06:07+05:30
+[INFO] ------------------------------------------------------------------------
+2026-07-06T05:36:07.815Z [INFO] [BaseBuildTool] Found 1 modules: .
+2026-07-06T05:36:07.843Z [INFO] [BaseBuildTool] Finish counting Java and class files
+2026-07-06T05:36:07.843Z [INFO] [MavenBuildTool] Cleaning c:\Users\Asus\Desktop\url_shortner using Maven
+2026-07-06T05:36:07.844Z [INFO] [Environment] Running command (Java undefined): mvn clean -q -B -fn
+2026-07-06T05:36:09.634Z [INFO] [MavenBuildTool] Getting Java version of c:\Users\Asus\Desktop\url_shortner from pom.xml
+2026-07-06T05:36:09.635Z [INFO] [MavenBuildTool] Searching for pom.xml files in c:\Users\Asus\Desktop\url_shortner
+2026-07-06T05:36:09.635Z [INFO] Build succeeded! There are no build errors in the project.
+2026-07-06T05:36:09.635Z [INFO] [MavenBuildTool] Found pom.xml files: c:\Users\Asus\Desktop\url_shortner\pom.xml
+2026-07-06T05:36:09.636Z [INFO] [Tool.invoke]({result: {
+  "message": "Build succeeded! There are no build errors in the project.",
+  "result": {
+    "numOfJavaFiles": 33,
+    "numOfClassFiles": 33,
+    "modulesBuildResult": {
+      ".": {
+        "numOfJavaFiles": 33,
+        "numOfClassFiles": 33
+      }
+    },
+    "errors": [],
+    "command": "mvn clean test-compile -q -B -fn -Dossindex.skip=true -Dlicense.skip=true -Dcheckstyle.skip=true -DskipLicenseCheck=true -DskipCheckStyle=true -Dpmd.skip=true -Denforcer.skip=true -Drat.skip=true"
+  },
+  "telemetry": {
+    "result": "succeeded"
+  }
+}}).
+2026-07-06T05:36:09.636Z [INFO] ----------------------invoked appmod-build-java-project----------------------
+2026-07-06T05:36:09.639Z [INFO] [MavenBuildTool] Java version found in c:\Users\Asus\Desktop\url_shortner\pom.xml: 25
+2026-07-06T05:36:14.918Z [INFO] ---------------------prepare appmod-run-tests-for-java----------------------
+2026-07-06T05:36:14.919Z [INFO] [Tool.prepareInvocation]({name: appmod-run-tests-for-java, input: {
+  "sessionId": "20260706053543",
+  "projectPath": "c:\\Users\\Asus\\Desktop\\url_shortner"
+}}).
+2026-07-06T05:36:14.920Z [INFO] [Tool.prepareInvocation] do prepare invocation.
+2026-07-06T05:36:14.921Z [INFO] [Tool.prepareInvocation]({result: {
+  "invocationMessage": "Run tests"
+}}).
+2026-07-06T05:36:14.921Z [INFO] ----------------------prepared appmod-run-tests-for-java----------------------
+2026-07-06T05:36:14.968Z [INFO] ----------------------invoke appmod-run-tests-for-java----------------------
+2026-07-06T05:36:14.968Z [INFO] [Tool.invoke]({name: appmod-run-tests-for-java, modelId: auto, input: {
+  "sessionId": "20260706053543",
+  "projectPath": "c:\\Users\\Asus\\Desktop\\url_shortner"
+}}).
+2026-07-06T05:36:14.970Z [INFO] [Tool.invoke] do invoke.
+2026-07-06T05:36:14.971Z [INFO] Project c:\Users\Asus\Desktop\url_shortner is a maven project, try to get java version from pom.xml
+2026-07-06T05:36:14.973Z [INFO] Project java version: 25
+2026-07-06T05:36:14.974Z [INFO] Maven project detected.
+2026-07-06T05:36:14.974Z [INFO] Build tool type: mvn
+2026-07-06T05:36:15.024Z [INFO] JDK: {
+  "name": "java",
+  "path": "C:\\Users\\Asus\\AppData\\Local\\jdks\\jdk-25.0.2\\bin",
+  "version": "25"
+}
+2026-07-06T05:36:15.032Z [INFO] Build tool: {
+  "name": "mvn",
+  "path": "C:\\Users\\Asus\\.maven\\maven-3.9.15\\bin",
+  "version": "",
+  "source": "install"
+}
+2026-07-06T05:36:15.033Z [INFO] Project config: {
+  "buildTool": {
+    "path": "C:\\Users\\Asus\\.maven\\maven-3.9.15\\bin",
+    "name": "mvn",
+    "version": "",
+    "source": "install"
+  },
+  "jdk": {
+    "path": "C:\\Users\\Asus\\AppData\\Local\\jdks\\jdk-25.0.2\\bin",
+    "name": "java",
+    "version": "25"
+  },
+  "name": "url_shortner",
+  "dir": "c:\\Users\\Asus\\Desktop\\url_shortner"
+}
+2026-07-06T05:36:15.033Z [INFO] Building project before running tests...
+2026-07-06T05:36:15.033Z [INFO] [MavenBuildTool] Getting build errors of c:\Users\Asus\Desktop\url_shortner using Maven
+2026-07-06T05:36:15.034Z [INFO] [Environment] Running command (Java undefined): mvn clean test-compile -q -B -fn -Dossindex.skip=true -Dlicense.skip=true -Dcheckstyle.skip=true -DskipLicenseCheck=true -DskipCheckStyle=true -Dpmd.skip=true -Denforcer.skip=true -Drat.skip=true
+2026-07-06T05:36:19.589Z [INFO] [MavenBuildTool] parsing compilation errors.
+2026-07-06T05:36:19.589Z [INFO] [MavenBuildTool] Getting all module coordinates of c:\Users\Asus\Desktop\url_shortner
+2026-07-06T05:36:19.590Z [INFO] [MavenBuildTool] Getting effective POMs of c:\Users\Asus\Desktop\url_shortner
+2026-07-06T05:36:19.590Z [INFO] [Environment] Running command (Java undefined): mvn help:effective-pom -Doutput=effective-pom-da25b6d3-3d93-4128-8f04-85fffc1ada2e.log
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------< com.urlshortener:url-shortener >-------------------
+[INFO] Building url-shortener 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- help:3.5.1:effective-pom (default-cli) @ url-shortener ---
+[INFO] Effective-POM written to: c:\Users\Asus\Desktop\url_shortner\effective-pom-da25b6d3-3d93-4128-8f04-85fffc1ada2e.log
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.707 s
+[INFO] Finished at: 2026-07-06T11:06:21+05:30
+[INFO] ------------------------------------------------------------------------
+2026-07-06T05:36:21.862Z [INFO] [BaseBuildTool] Found 1 modules: .
+2026-07-06T05:36:21.878Z [INFO] [BaseBuildTool] Finish counting Java and class files
+2026-07-06T05:36:21.878Z [INFO] [MavenBuildTool] Cleaning c:\Users\Asus\Desktop\url_shortner using Maven
+2026-07-06T05:36:21.878Z [INFO] [Environment] Running command (Java undefined): mvn clean -q -B -fn
+2026-07-06T05:36:23.631Z [INFO] Running tests...
+2026-07-06T05:36:23.632Z [INFO] [MavenBuildTool] Running test cases of c:\Users\Asus\Desktop\url_shortner using Maven
+2026-07-06T05:36:23.632Z [INFO] [Environment] Running command (Java undefined): mvn clean test -q -B -fn
+Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+WARNING: A Java agent has been loaded dynamically (C:\Users\Asus\.m2\repository\net\bytebuddy\byte-buddy-agent\1.18.10\byte-buddy-agent-1.18.10.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+2026-07-06T05:36:31.030Z [INFO] [MavenBuildTool] loading surefire reports.
+2026-07-06T05:36:31.083Z [INFO] [MavenBuildTool] summarizing surefire reports.
+2026-07-06T05:36:31.084Z [INFO] [Tool.invoke]({result: {
+  "message": "All tests passed! There are no test errors/failures in the project.",
+  "result": {
+    "errors": [],
+    "failures": [],
+    "summary": {
+      "tests": 15,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "reports": [
+      {
+        "name": "com.urlshortener.service.UrlServiceTest",
+        "time": 0.24,
+        "tests": 9,
+        "errors": 0,
+        "skipped": 0,
+        "failures": 0,
+        "testcases": [
+          {
+            "name": "getOriginalUrlThrowsWhenExpired",
+            "classname": "com.urlshortener.service.UrlServiceTest",
+            "time": 0.189,
+            "failures": [],
+            "rerunFailures": [],
+            "flakyFailures": [],
+            "errors": [],
+            "rerunErrors": [],
+            "flakyErrors": []
+          },
+          {
+            "name": "getUserUrlsReturnsUrlsSortedByNewestFirst",
+            "classname": "com.urlshortener.service.UrlServiceTest",
+            "time": 0.009,
+            "failures": [],
+            "rerunFailures": [],
+            "flakyFailures": [],
+            "errors": [],
+            "rerunErrors": [],
+            "flakyErrors": []
+          },
+          {
+            "name": "createShortUrlAssociatesAuthenticatedUser",
+            "classname": "com.urlshortener.service.UrlServiceTest",
+            "time": 0.009,
+            "failures": [],
+            "rerunFailures": [],
+            "flakyFailures": [],
+            "errors": [],
+            "rerunErrors": [],
+            "flakyErrors": []
+          },
+          {
+            "name": "invalidAliasThrowsException",
+            "classname": "com.urlshortener.service.UrlServiceTest",
+            "time": 0.003,
+            "failures": [],
+            "rerunFailures": [],
+            "flakyFailures": [],
+            "errors": [],
+            "rerunErrors": [],
+            "flakyErrors": []
+          },
+          {
+            "name": "getOriginalUrlIncrementsClickCountAndSavesClickEvent",
+            "classname": "com.urlshortener.service.UrlServiceTest",
+            "time": 0.005,
+            "failures": [],
+            "rerunFailures": [],
+            "flakyFailures": [],
+            "errors": [],
+            "rerunErrors": [],
+            "flakyErrors": []
+          },
+          {
+            "name": "createShortUrlUsesCustomAliasWhenProvided",
+            "classname": "com.urlshortener.service.UrlServiceTest",
+            "time": 0.005,
+            "failures": [],
+            "rerunFailures": [],
+            "flakyFailures": [],
+            "errors": [],
+            "rerunErrors": [],
+            "flakyErrors": []
+          },
+          {
+            "name": "getUserUrlsFiltersByAuthenticatedUser",
+            "classname": "com.urlshortener.service.UrlServiceTest",
+            "time": 0.004,
+            "failures": [],
+            "rerunFailures": [],
+            "flakyFailures": [],
+            "errors": [],
+            "rerunErrors": [],
+            "flakyErrors": []
+          },
+          {
+            "name": "createShortUrlGeneratesShortCodeFromId",
+            "classname": "com.urlshortener.service.UrlServiceTest",
+            "time": 0.005,
+            "failures": [],
+            "rerunFailures": [],
+            "flakyFailures": [],
+            "errors": [],
+            "rerunErrors": [],
+            "flakyErrors": []
+          },
+          {
+            "name": "getOriginalUrlThrowsWhenMappingMissing",
+            "classname": "com.urlshortener.service.UrlServiceTest",
+            "time": 0.002,
+            "failures": [],
+            "rerunFailures": [],
+            "flakyFailures": [],
+            "errors": [],
+            "rerunErrors": [],
+            "flakyErrors": []
+          }
+        ]
+      },
+      {
+        "name": "com.urlshortener.service.UrlEncodingServiceTest",
+        "time": 0.018,
+        "tests": 3,
+        "errors": 0,
+        "skipped": 0,
+        "failures": 0,
+        "testcases": [
+          {
+            "name": "encodeZeroAndOneWorkCorrectly",
+            "classname": "com.urlshortener.service.UrlEncodingServiceTest",
+            "time": 0.002,
+            "failures": [],
+            "rerunFailures": [],
+            "flakyFailures": [],
+            "errors": [],
+            "rerunErrors": [],
+            "flakyErrors": []
+          },
+          {
+            "name": "encodeThenDecodeReturnsOriginalValue",
+            "classname": "com.urlshortener.service.UrlEncodingServiceTest",
+            "time": 0.004,
+            "failures": [],
+            "rerunFailures": [],
+            "flakyFailures": [],
+            "errors": [],
+            "rerunErrors": [],
+            "flakyErrors": []
+          },
+          {
+            "name": "sequentialIdsProduceUniqueCodes",
+            "classname": "com.urlshortener.service.UrlEncodingServiceTest",
+            "time": 0.009,
+            "failures": [],
+            "rerunFailures": [],
+            "flakyFailures": [],
+            "errors": [],
+            "rerunErrors": [],
+            "flakyErrors": []
+          }
+        ]
+      },
+      {
+        "name": "com.urlshortener.controller.UrlControllerTest",
+        "time": 0.044,
+        "tests": 2,
+        "errors": 0,
+        "skipped": 0,
+        "failures": 0,
+        "testcases": [
+          {
+            "name": "getUserUrlsReturnsMappedResults",
+            "classname": "com.urlshortener.controller.UrlControllerTest",
+            "time": 0.034,
+            "failures": [],
+            "rerunFailures": [],
+            "flakyFailures": [],
+            "errors": [],
+            "rerunErrors": [],
+            "flakyErrors": []
+          },
+          {
+            "name": "createShortUrlReturnsCreatedResponse",
+            "classname": "com.urlshortener.controller.UrlControllerTest",
+            "time": 0.005,
+            "failures": [],
+            "rerunFailures": [],
+            "flakyFailures": [],
+            "errors": [],
+            "rerunErrors": [],
+            "flakyErrors": []
+          }
+        ]
+      },
+      {
+        "name": "com.urlshortener.controller.RedirectControllerTest",
+        "time": 1.075,
+        "tests": 1,
+        "errors": 0,
+        "skipped": 0,
+        "failures": 0,
+        "testcases": [
+          {
+            "name": "redirectEndpointUsesPublicShortCodeRouteAndPassesMetadata",
+            "classname": "com.urlshortener.controller.RedirectControllerTest",
+            "time": 1.054,
+            "failures": [],
+            "rerunFailures": [],
+            "flakyFailures": [],
+            "errors": [],
+            "rerunErrors": [],
+            "flakyErrors": []
+          }
+        ]
+      }
+    ]
+  },
+  "telemetry": {
+    "result": "succeeded"
+  }
+}}).
+2026-07-06T05:36:31.085Z [INFO] ----------------------invoked appmod-run-tests-for-java----------------------
