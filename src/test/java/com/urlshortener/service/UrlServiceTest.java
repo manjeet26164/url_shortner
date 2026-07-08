@@ -202,6 +202,66 @@ class UrlServiceTest {
     }
 
     @Test
+    void deleteShortUrlSucceedsForOwner() {
+        com.urlshortener.entity.User owner = new com.urlshortener.entity.User();
+        owner.setId(99L);
+        owner.setEmail("owner@example.com");
+        owner.setPassword("secret");
+        when(userRepository.findByEmail("owner@example.com")).thenReturn(Optional.of(owner));
+
+        UrlMapping mapping = new UrlMapping();
+        mapping.setId(5L);
+        mapping.setShortCode("mine");
+        mapping.setUser(owner);
+        when(urlMappingRepository.findByShortCode("mine")).thenReturn(Optional.of(mapping));
+        SecurityContextHolder.getContext().setAuthentication(
+            new UsernamePasswordAuthenticationToken("owner@example.com", "n/a", List.of(new SimpleGrantedAuthority("ROLE_USER"))));
+
+        urlService.deleteShortUrl("mine");
+
+        verify(urlMappingRepository).delete(mapping);
+        verify(urlCacheService).evict("mine");
+    }
+
+    @Test
+    void deleteShortUrlThrowsWhenRequestedByNonOwner() {
+        com.urlshortener.entity.User owner = new com.urlshortener.entity.User();
+        owner.setId(99L);
+        owner.setEmail("owner@example.com");
+
+        com.urlshortener.entity.User attacker = new com.urlshortener.entity.User();
+        attacker.setId(7L);
+        attacker.setEmail("attacker@example.com");
+        when(userRepository.findByEmail("attacker@example.com")).thenReturn(Optional.of(attacker));
+
+        UrlMapping mapping = new UrlMapping();
+        mapping.setId(5L);
+        mapping.setShortCode("mine");
+        mapping.setUser(owner);
+        when(urlMappingRepository.findByShortCode("mine")).thenReturn(Optional.of(mapping));
+        SecurityContextHolder.getContext().setAuthentication(
+            new UsernamePasswordAuthenticationToken("attacker@example.com", "n/a", List.of(new SimpleGrantedAuthority("ROLE_USER"))));
+
+        assertThrows(UrlNotFoundException.class, () -> urlService.deleteShortUrl("mine"));
+        verify(urlMappingRepository, never()).delete(any(UrlMapping.class));
+        verify(clickEventRepository, never()).deleteByUrlMapping(any(UrlMapping.class));
+    }
+
+    @Test
+    void deleteShortUrlThrowsWhenNotAuthenticated() {
+        UrlMapping mapping = new UrlMapping();
+        mapping.setId(5L);
+        mapping.setShortCode("mine");
+        com.urlshortener.entity.User owner = new com.urlshortener.entity.User();
+        owner.setId(99L);
+        mapping.setUser(owner);
+        when(urlMappingRepository.findByShortCode("mine")).thenReturn(Optional.of(mapping));
+
+        assertThrows(UrlNotFoundException.class, () -> urlService.deleteShortUrl("mine"));
+        verify(urlMappingRepository, never()).delete(any(UrlMapping.class));
+    }
+
+    @Test
     void getUserUrlsFiltersByAuthenticatedUser() {
         com.urlshortener.entity.User user = new com.urlshortener.entity.User();
         user.setId(99L);

@@ -17,16 +17,20 @@ public class AnalyticsService {
 
     private final ClickEventRepository clickEventRepository;
     private final UrlMappingRepository urlMappingRepository;
+    private final UrlService urlService;
 
     public AnalyticsService(ClickEventRepository clickEventRepository,
-                             UrlMappingRepository urlMappingRepository) {
+                             UrlMappingRepository urlMappingRepository,
+                             UrlService urlService) {
         this.clickEventRepository = clickEventRepository;
         this.urlMappingRepository = urlMappingRepository;
+        this.urlService = urlService;
     }
 
     public AnalyticsResponse getAnalytics(String shortCode) {
         UrlMapping mapping = urlMappingRepository.findByShortCode(shortCode)
                 .orElseThrow(() -> new UrlNotFoundException("Short URL not found: " + shortCode));
+        urlService.assertOwnership(mapping);
 
         List<Object[]> rawResults = clickEventRepository.countClicksGroupedByDay(mapping.getId());
 

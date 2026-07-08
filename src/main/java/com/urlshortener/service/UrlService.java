@@ -131,9 +131,19 @@ public class UrlService {
     public void deleteShortUrl(String shortCode) {
         UrlMapping mapping = urlMappingRepository.findByShortCode(shortCode)
                 .orElseThrow(() -> new UrlNotFoundException("Short URL not found: " + shortCode));
+        assertOwnership(mapping);
         clickEventRepository.deleteByUrlMapping(mapping);
         urlMappingRepository.delete(mapping);
         urlCacheService.evict(shortCode);
+    }
+
+    void assertOwnership(UrlMapping mapping) {
+        Long ownerId = mapping.getUser() != null ? mapping.getUser().getId() : null;
+        Long requesterId = currentUser().map(User::getId).orElse(null);
+
+        if (ownerId == null || requesterId == null || !ownerId.equals(requesterId)) {
+            throw new UrlNotFoundException("Short URL not found: " + mapping.getShortCode());
+        }
     }
 
     private void validateCustomAlias(String customAlias) {
