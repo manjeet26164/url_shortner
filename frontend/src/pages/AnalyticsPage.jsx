@@ -21,7 +21,7 @@ export default function AnalyticsPage() {
   useEffect(() => {
     const fetchAnalytics = async () => {
       try {
-        const res = await api.get(`/api/urls/${shortCode}/analytics`);
+        const res = await api.get(`/urls/${shortCode}/analytics`);
         setAnalytics(res.data);
       } catch (err) {
         setError('Could not load analytics for this URL.');
