@@ -61,7 +61,7 @@ export default function DashboardPage() {
 
   const handleDownloadQr = async (shortCode) => {
     try {
-      const res = await api.get(`/urls/${shortCode}/qr`, { responseType: 'blob' });
+      const res = await api.get(`/urls/${shortCode}/qrcode`, { responseType: 'blob' });
       const url = window.URL.createObjectURL(new Blob([res.data]));
       const link = document.createElement('a');
       link.href = url;
