@@ -9,5 +9,6 @@ public record AnalyticsResponse(
         List<DailyClickCount> clicksByDay,
         List<BreakdownItem> deviceBreakdown,
         List<BreakdownItem> browserBreakdown,
-        List<BreakdownItem> referrerBreakdown) {
+        List<BreakdownItem> referrerBreakdown,
+        List<BreakdownItem> countryBreakdown) {
 }

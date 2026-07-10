@@ -15,11 +15,14 @@ public class UrlRedirectAuditService {
 
     private final UrlMappingRepository urlMappingRepository;
     private final ClickEventRepository clickEventRepository;
+    private final GeoLocationService geoLocationService;
 
     public UrlRedirectAuditService(UrlMappingRepository urlMappingRepository,
-                                   ClickEventRepository clickEventRepository) {
+                                   ClickEventRepository clickEventRepository,
+                                   GeoLocationService geoLocationService) {
         this.urlMappingRepository = urlMappingRepository;
         this.clickEventRepository = clickEventRepository;
+        this.geoLocationService = geoLocationService;
     }
 
     @Async
@@ -34,6 +37,8 @@ public class UrlRedirectAuditService {
         mapping.setClickCount((mapping.getClickCount() == null ? 0L : mapping.getClickCount()) + 1);
         urlMappingRepository.save(mapping);
 
+        GeoLocationService.GeoLocation location = geoLocationService.resolve(ipAddress);
+
         ClickEvent clickEvent = new ClickEvent();
         clickEvent.setUrlMapping(mapping);
         clickEvent.setReferrer(referrer);
@@ -41,6 +46,8 @@ public class UrlRedirectAuditService {
         clickEvent.setDeviceType(UserAgentParser.parseDeviceType(userAgent));
         clickEvent.setBrowser(UserAgentParser.parseBrowser(userAgent));
         clickEvent.setOperatingSystem(UserAgentParser.parseOs(userAgent));
+        clickEvent.setCountry(location.country());
+        clickEvent.setCity(location.city());
         clickEventRepository.save(clickEvent);
     }
 }

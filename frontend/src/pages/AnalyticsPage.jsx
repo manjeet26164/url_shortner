@@ -111,6 +111,7 @@ export default function AnalyticsPage() {
               <BreakdownPie title="Device type" data={analytics.deviceBreakdown} />
               <BreakdownPie title="Browser" data={analytics.browserBreakdown} />
               <BreakdownPie title="Referrer" data={analytics.referrerBreakdown} />
+              <BreakdownPie title="Country" data={analytics.countryBreakdown} />
             </div>
           </>
         ) : null}

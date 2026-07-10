@@ -21,8 +21,8 @@ public class AnalyticsService {
     private final UrlService urlService;
 
     public AnalyticsService(ClickEventRepository clickEventRepository,
-                             UrlMappingRepository urlMappingRepository,
-                             UrlService urlService) {
+            UrlMappingRepository urlMappingRepository,
+            UrlService urlService) {
         this.clickEventRepository = clickEventRepository;
         this.urlMappingRepository = urlMappingRepository;
         this.urlService = urlService;
@@ -48,9 +48,14 @@ public class AnalyticsService {
         List<BreakdownItem> deviceBreakdown = toBreakdown(clickEventRepository.countByDeviceType(mapping.getId()));
         List<BreakdownItem> browserBreakdown = toBreakdown(clickEventRepository.countByBrowser(mapping.getId()));
         List<BreakdownItem> referrerBreakdown = toBreakdown(clickEventRepository.countByReferrer(mapping.getId()));
+        List<BreakdownItem> countryBreakdown = toBreakdown(clickEventRepository.countByCountry(mapping.getId()));
 
         return new AnalyticsResponse(mapping.getShortCode(), mapping.getLongUrl(), totalClicks, clicksByDay,
-                deviceBreakdown, browserBreakdown, referrerBreakdown);
+                deviceBreakdown, browserBreakdown, referrerBreakdown, countryBreakdown);
+    }
+
+    return new AnalyticsResponse(mapping.getShortCode(),mapping.getLongUrl(),totalClicks,clicksByDay,deviceBreakdown,browserBreakdown,referrerBreakdown);
+
     }
 
     private List<BreakdownItem> toBreakdown(List<Object[]> rows) {

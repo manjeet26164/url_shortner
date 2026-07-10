@@ -23,6 +23,10 @@ public interface ClickEventRepository extends JpaRepository<ClickEvent, Long> {
             nativeQuery = true)
     List<Object[]> countByReferrer(@Param("urlMappingId") Long urlMappingId);
 
+    @Query(value = "SELECT COALESCE(NULLIF(country, ''), 'Unknown'), COUNT(*) FROM click_events WHERE url_mapping_id = :urlMappingId GROUP BY COALESCE(NULLIF(country, ''), 'Unknown')",
+            nativeQuery = true)
+    List<Object[]> countByCountry(@Param("urlMappingId") Long urlMappingId);
+
     @Query(value = """
         SELECT CAST(clicked_at AS date) AS clickDay, COUNT(*) AS clickCount
         FROM click_events
